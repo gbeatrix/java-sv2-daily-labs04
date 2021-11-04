@@ -13,14 +13,14 @@ public class Stock {
         if(stockList==null || stockList.size()<=1){
             return 0;
         }
-        double prev = stockList.get(0);
-        double sum = 0.0;
-        for(double item : stockList){
-            if(item-prev>0){
-                sum += item-prev;
+        double max=0.0;
+        for(int i=0; i<stockList.size(); i++){
+            for(int j=i+1; j<stockList.size(); j++){
+                if(stockList.get(j)- stockList.get(i)>max){
+                    max = stockList.get(j)- stockList.get(i);
+                }
             }
-            prev = item;
         }
-        return sum;
+        return max;
     }
 }
