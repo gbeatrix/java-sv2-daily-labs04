@@ -4,17 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Plane {
-    private int capacity;
+    private int maxCapacity;
     private List<Passenger> passengers = new ArrayList<>();
 
-    public Plane(int capacity) {
-        this.capacity = capacity;
+    public Plane(int maxCapacity) {
+        this.maxCapacity = maxCapacity;
+    }
+
+    public int getMaxCapacity() {
+        return maxCapacity;
+    }
+
+    public List<Passenger> getPassengers() {
+        return passengers;
     }
 
     public boolean addPassenger(Passenger passenger){
-        if(0<capacity){
+        if(passengers.size() < maxCapacity){
             passengers.add(passenger);
-            capacity--;
             return true;
         } else {
             return false;
